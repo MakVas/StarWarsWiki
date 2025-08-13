@@ -1,0 +1,23 @@
+.home__welcome-text {
+    color: #ffe81f;
+    font-size: 48px;
+    text-shadow:
+            0 0 6px #ffe81f,      /* основне світіння */
+            0 0 40px #ffe81f;     /* далеке сяйво */
+}
+
+.home__title {
+    color: #ffe81f;
+    font-size: 32px;
+}
+
+.home__quote {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 0;
+}
+
+.home__author {
+    font-size: 16px;
+}
