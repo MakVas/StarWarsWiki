@@ -1,12 +1,14 @@
+import { useState } from 'react';
+
 import Header from './components/Header/Header.tsx';
-import HomeSection from './pages/Home/HomeSection.tsx';
 import Footer from './components/Footer/Footer.tsx';
+
+import HomeSection from './pages/Home/HomeSection.tsx';
 import FilmsSection from './pages/Films/FilmsSection.tsx';
 import PeopleSection from './pages/People/PeopleSection.tsx';
 import PlanetsSection from './pages/Planets/PlanetsSection.tsx';
 import VehiclesSection from './pages/Vehicles/VehiclesSection.tsx';
 import StarshipsSection from './pages/Starships/StarshipsSection.tsx';
-import { useState } from 'react';
 
 function App() {
     const [tab, setTab] = useState<string>('home');
