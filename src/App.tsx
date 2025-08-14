@@ -16,7 +16,7 @@ function App() {
     return (
         <>
             <Header onClick={(tab) => setTab(tab)} active={tab} />
-            <main className={'main'}>
+            <main>
                 {tab === 'home' && <HomeSection />}
                 {tab === 'films' && <FilmsSection />}
                 {tab === 'people' && <PeopleSection />}
@@ -26,9 +26,10 @@ function App() {
             </main>
             <Footer
                 onClick={(tab) => {
-                    window.scrollTo({ top: 0 });
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                     setTab(tab);
                 }}
+                active={tab}
             />
         </>
     );

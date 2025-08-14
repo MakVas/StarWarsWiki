@@ -1,64 +1,17 @@
-import './Footer.css';
+import { StyledFooter } from './Footer.css.ts';
+import NavMenu from '../Navigation/NavMenu.tsx';
 
 interface FooterProps {
     onClick: (route: string) => void;
+    active?: string;
 }
 
-function Footer({ onClick }: FooterProps) {
+function Footer({ onClick, active }: FooterProps) {
     return (
-        <footer className={'footer'}>
-            <ul className={'footer__menu'}>
-                <li className={'footer__menu-item'}>
-                    <p
-                        className={'footer__menu-link'}
-                        onClick={() => onClick('home')}
-                    >
-                        Home
-                    </p>
-                </li>
-                <li className={'footer__menu-item'}>
-                    <p
-                        className={'footer__menu-link'}
-                        onClick={() => onClick('films')}
-                    >
-                        Films
-                    </p>
-                </li>
-                <li className={'footer__menu-item'}>
-                    <p
-                        className={'footer__menu-link'}
-                        onClick={() => onClick('people')}
-                    >
-                        People
-                    </p>
-                </li>
-                <li className={'footer__menu-item'}>
-                    <p
-                        className={'footer__menu-link'}
-                        onClick={() => onClick('planets')}
-                    >
-                        Planets
-                    </p>
-                </li>
-                <li className={'footer__menu-item'}>
-                    <p
-                        className={'footer__menu-link'}
-                        onClick={() => onClick('vehicles')}
-                    >
-                        Vehicles
-                    </p>
-                </li>
-                <li className={'footer__menu-item'}>
-                    <p
-                        className={'footer__menu-link'}
-                        onClick={() => onClick('starships')}
-                    >
-                        Starships
-                    </p>
-                </li>
-            </ul>
+        <StyledFooter>
+            <NavMenu onClick={onClick} active={active} />
             <p>&copy; Makovii Andrii. All Rights Reserved</p>
-        </footer>
+        </StyledFooter>
     );
 }
 

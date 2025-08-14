@@ -23,13 +23,13 @@ const GlobalStyles = createGlobalStyle`
         min-height: 100vh;
     }
 
-    .main{
+    main{
         min-height: 100vh;
         display: flex;
         flex-direction: column;
     }
 
-    .section {
+    section {
         display: flex;
         flex-direction: column;
         align-items: center;

@@ -1,14 +1,4 @@
-.footer {
-    margin-top: auto;
-    position: relative;
-    background: #000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-.footer__menu {
+.navMenu {
     position: sticky;
     list-style-type: none;
     margin: 0;
@@ -17,21 +7,32 @@
     justify-content: center;
 }
 
-.footer__menu-item {
-    float: left;
-}
-
-.footer__menu-link {
+.navMenuLink {
     font-weight: 500;
     font-style: normal;
     text-decoration: none;
     text-transform: uppercase;
     display: block;
-    padding: 16px;
     color: rgba(255, 255, 255, 0.5);
 }
 
-.footer__menu-link:hover {
+.navMenuLink.active {
+    color: #fff;
+    text-shadow:
+            0 0 2px white,
+            0 0 4px white,
+            0 0 6px #ffe81f,
+            0 0 10px #ffe81f,
+            0 0 20px #ffe81f,
+            0 0 40px #ffe81f;
+    transition: text-shadow 0.3s;
+}
+
+.navMenuLink:hover {
     cursor: pointer;
     color: rgba(255, 255, 255, 1);
+}
+
+.navMenuItem {
+    margin: 16px;
 }

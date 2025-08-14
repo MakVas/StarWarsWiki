@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import type { starshipModel } from '../../models/starshipModel.ts';
+
 import StarshipCard from '../../components/Cards/StarshipCard/StarshipCard.tsx';
 
 function StarshipsSection() {
@@ -38,7 +40,7 @@ function StarshipsSection() {
                         .filter((starship) =>
                             starship.name
                                 .toLowerCase()
-                                .includes(input.toLowerCase())
+                                .includes(input.toLowerCase()),
                         )
                         .map((starship) => (
                             <StarshipCard

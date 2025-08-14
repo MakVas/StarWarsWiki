@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import type { peopleModel } from '../../models/peopleModel.ts';
+
 import PeopleCard from '../../components/Cards/PeopleCard/PeopleCard.tsx';
-import './PeopleSection.css';
 
 function PeopleSection() {
     const [input, setInput] = useState<string>('');
@@ -44,7 +45,7 @@ function PeopleSection() {
                         .filter((people) =>
                             people.name
                                 .toLowerCase()
-                                .includes(input.toLowerCase())
+                                .includes(input.toLowerCase()),
                         )
                         .map((people) => (
                             <PeopleCard key={people.name} people={people} />

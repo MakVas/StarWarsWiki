@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import type { vehicleModel } from '../../models/vehicleModel.ts';
+
 import VehicleCard from '../../components/Cards/VehicleCard/VehicleCard.tsx';
 
 function VehiclesSection() {
@@ -38,7 +40,7 @@ function VehiclesSection() {
                         .filter((vehicle) =>
                             vehicle.name
                                 .toLowerCase()
-                                .includes(input.toLowerCase())
+                                .includes(input.toLowerCase()),
                         )
                         .map((vehicle) => (
                             <VehicleCard key={vehicle.name} vehicle={vehicle} />

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import { type filmModel } from '../../models/filmModel.ts';
+
 import FilmCard from '../../components/Cards/FilmCard/FilmCard.tsx';
 
 function FilmsSection() {
@@ -38,7 +40,7 @@ function FilmsSection() {
                         .filter((film) =>
                             film.title
                                 .toLowerCase()
-                                .includes(input.toLowerCase())
+                                .includes(input.toLowerCase()),
                         )
                         .map((film) => (
                             <FilmCard key={film.episode_id} film={film} />

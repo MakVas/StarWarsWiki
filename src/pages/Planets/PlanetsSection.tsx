@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import type { planetModel } from '../../models/planetModel.ts';
+
 import PlanetCard from '../../components/Cards/PlanetCard/PlanetCard.tsx';
 
 function PlanetsSection() {
@@ -38,7 +40,7 @@ function PlanetsSection() {
                         .filter((planet) =>
                             planet.name
                                 .toLowerCase()
-                                .includes(input.toLowerCase())
+                                .includes(input.toLowerCase()),
                         )
                         .map((planet) => (
                             <PlanetCard key={planet.name} planet={planet} />
