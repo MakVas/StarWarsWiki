@@ -34,5 +34,8 @@
 }
 
 .navMenuItem {
-    margin: 16px;
+    margin: 0 8px 0 8px;
+    p {
+        margin: 8px 0 8px 0;
+    }
 }

@@ -1,27 +1,47 @@
 import styled from 'styled-components';
 
-const WelcomeText = styled.h1`
-    color: #ffe81f;
-    font-size: 48px;
-    text-shadow:
-        0 0 6px #ffe81f,
-        0 0 40px #ffe81f;
+const WelcomeText = styled.div`
+    text-align: center;
+    margin-top: ${({ theme }) => theme.spacing.medium};
+
+    h1 {
+        color: ${({ theme }) => theme.colors.textPrimary};
+        font-size: ${({ theme }) => theme.typography.fontSize.large};
+        line-height: 1;
+        margin: 0;
+    }
+
+    span {
+        color: ${({ theme }) => theme.colors.textSecondary};
+    }
+
+    p {
+        font-size: ${({ theme }) => theme.typography.fontSize.small};
+        line-height: 1;
+    }
 `;
 
-const Title = styled.h2`
-    color: #ffe81f;
-    font-size: 32px;
+const Quote = styled.div`
+    max-width: 1000px;
+    margin: 32px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    h2 {
+        text-align: center;
+        font-size: ${({ theme }) => theme.typography.fontSize.medium};
+        font-weight: bold;
+        font-style: italic;
+        line-height: 1;
+        margin: 0;
+    }
+
+    p {
+        align-self: flex-end;
+        font-size: ${({ theme }) => theme.typography.fontSize.small};
+        margin: 0;
+    }
 `;
 
-const Quote = styled.p`
-    font-size: 24px;
-    font-weight: bold;
-    font-style: italic;
-    line-height: 0;
-`;
-
-const Author = styled.p`
-    font-size: 16px;
-`;
-
-export { WelcomeText, Title, Quote, Author };
+export { WelcomeText, Quote };

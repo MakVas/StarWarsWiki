@@ -14,7 +14,7 @@ const GlobalStyles = createGlobalStyle`
         background-image: url(${bgStars});
         background-repeat: repeat;
         background-attachment: fixed;
-        font-family: "Poppins", sans-serif;
+        font-family: ${({ theme }) => theme.typography.fontFamily};
     }
 
     body {
@@ -35,8 +35,9 @@ const GlobalStyles = createGlobalStyle`
         align-items: center;
         max-width: 1500px;
         margin: 0 auto;
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left: ${({ theme }) => theme.spacing.small};
+        padding-right: ${({ theme }) => theme.spacing.small};
+        width: 100%;
     }
 `;
 

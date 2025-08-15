@@ -1,6 +1,6 @@
 import { quotes } from '../../utils/quotes.ts';
 
-import { Author, Quote, Title, WelcomeText } from './HomeSection.css.ts';
+import { Quote, WelcomeText } from './HomeSection.css.ts';
 
 function HomeSection() {
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
@@ -8,16 +8,26 @@ function HomeSection() {
 
     return (
         <section>
-            <WelcomeText>Welcome to the Galaxy Database</WelcomeText>
+            <WelcomeText>
+                <h1>
+                    Welcome to the <span>Star Wars</span> Wiki!
+                </h1>
+                <p>
+                    Here you will find lots of interesting information about
+                    <br />
+                    movies, spaceships, planets, and many other things related
+                    <br />
+                    to the Star Wars saga.
+                </p>
+            </WelcomeText>
+
+            <Quote>
+                <h2>{`"${randomQuote.quote}"`}</h2>
+                <p>{`— ${randomQuote.author}`}</p>
+            </Quote>
 
             <div>
-                <Title>Random Star Wars quote</Title>
-                <Quote>{`"${randomQuote.quote}"`}</Quote>
-                <Author>{`— ${randomQuote.author}`}</Author>
-            </div>
-
-            <div>
-                <Title>Random Star Wars meme</Title>
+                <h2>Random Star Wars meme</h2>
                 <img
                     className={'home__image'}
                     src={randomMeme}

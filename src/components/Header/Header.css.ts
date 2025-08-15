@@ -6,11 +6,11 @@ const StyledHeader = styled.header`
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid ${({ theme }) => theme.colors.outlinePrimary};
 `;
 
 const HeaderImage = styled.img`
-    margin: 20px auto 0 auto;
+    margin: 20px auto 20px auto;
     cursor: pointer;
 `;
 
