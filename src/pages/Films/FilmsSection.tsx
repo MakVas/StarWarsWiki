@@ -4,6 +4,7 @@ import axios from 'axios';
 import { type filmModel } from '../../models/filmModel.ts';
 
 import FilmCard from '../../components/Cards/FilmCard/FilmCard.tsx';
+import Search from '../../components/Search/Search.tsx';
 
 function FilmsSection() {
     const [input, setInput] = useState<string>('');
@@ -24,18 +25,15 @@ function FilmsSection() {
     }, []);
 
     return (
-        <section className={'section films'}>
+        <section>
             <h1>Films search</h1>
+
+            <Search value={input} onChange={setInput} />
 
             {loading && <p>Loading...</p>}
 
             {!loading && (
                 <>
-                    <input
-                        type={'text'}
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                    />
                     {data
                         .filter((film) =>
                             film.title

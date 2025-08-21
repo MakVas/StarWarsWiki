@@ -4,6 +4,7 @@ import axios from 'axios';
 import type { starshipModel } from '../../models/starshipModel.ts';
 
 import StarshipCard from '../../components/Cards/StarshipCard/StarshipCard.tsx';
+import Search from '../../components/Search/Search.tsx';
 
 function StarshipsSection() {
     const [input, setInput] = useState<string>('');
@@ -27,15 +28,12 @@ function StarshipsSection() {
         <section className={'section starships'}>
             <h1>Starships search</h1>
 
+            <Search value={input} onChange={setInput} />
+
             {loading && <p>Loading...</p>}
 
             {!loading && (
                 <>
-                    <input
-                        type={'text'}
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                    />
                     {data
                         .filter((starship) =>
                             starship.name

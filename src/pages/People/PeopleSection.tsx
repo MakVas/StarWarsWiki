@@ -4,6 +4,7 @@ import axios from 'axios';
 import type { peopleModel } from '../../models/peopleModel.ts';
 
 import PeopleCard from '../../components/Cards/PeopleCard/PeopleCard.tsx';
+import Search from '../../components/Search/Search.tsx';
 
 function PeopleSection() {
     const [input, setInput] = useState<string>('');
@@ -27,20 +28,12 @@ function PeopleSection() {
         <section className={'section people'}>
             <h1>People search</h1>
 
+            <Search value={input} onChange={setInput} />
+
             {loading && <p>Loading...</p>}
 
             {!loading && (
                 <>
-                    <div className={'section_search'}>
-                        <div className={'section__lightsaber'}></div>
-                        <input
-                            className={'section__input'}
-                            type={'text'}
-                            value={input}
-                            onChange={(e) => setInput(e.target.value)}
-                        />
-                    </div>
-
                     {data
                         .filter((people) =>
                             people.name

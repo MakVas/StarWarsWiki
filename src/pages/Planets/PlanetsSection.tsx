@@ -4,6 +4,7 @@ import axios from 'axios';
 import type { planetModel } from '../../models/planetModel.ts';
 
 import PlanetCard from '../../components/Cards/PlanetCard/PlanetCard.tsx';
+import Search from '../../components/Search/Search.tsx';
 
 function PlanetsSection() {
     const [input, setInput] = useState<string>('');
@@ -27,15 +28,12 @@ function PlanetsSection() {
         <section className={'section planets'}>
             <h1>Planets search</h1>
 
+            <Search value={input} onChange={setInput} />
+
             {loading && <p>Loading...</p>}
 
             {!loading && (
                 <>
-                    <input
-                        type={'text'}
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                    />
                     {data
                         .filter((planet) =>
                             planet.name

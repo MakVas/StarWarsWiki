@@ -4,6 +4,7 @@ import axios from 'axios';
 import type { vehicleModel } from '../../models/vehicleModel.ts';
 
 import VehicleCard from '../../components/Cards/VehicleCard/VehicleCard.tsx';
+import Search from '../../components/Search/Search.tsx';
 
 function VehiclesSection() {
     const [input, setInput] = useState<string>('');
@@ -27,15 +28,12 @@ function VehiclesSection() {
         <section className={'section vehicles'}>
             <h1>Vehicles search</h1>
 
+            <Search value={input} onChange={setInput} />
+
             {loading && <p>Loading...</p>}
 
             {!loading && (
                 <>
-                    <input
-                        type={'text'}
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                    />
                     {data
                         .filter((vehicle) =>
                             vehicle.name
