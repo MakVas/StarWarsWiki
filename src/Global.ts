@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
    
     * {
         box-sizing: border-box;
+        font-family: ${({ theme }) => theme.typography.fontFamily};
     }
 
     :root {
@@ -14,7 +15,6 @@ const GlobalStyles = createGlobalStyle`
         background-image: url(${bgStars});
         background-repeat: repeat;
         background-attachment: fixed;
-        font-family: ${({ theme }) => theme.typography.fontFamily};
     }
 
     body {

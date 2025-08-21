@@ -1,23 +1,36 @@
+import { NavLink } from 'react-router-dom';
+
 import { logoSrc } from '../../utils/constants.ts';
 
-import { StyledHeader, HeaderImage } from './Header.css.ts';
-import NavMenu from '../Navigation/NavMenu.tsx';
+import { StyledHeader, HeaderImage, NavBar } from './Header.css.ts';
 
-interface HeaderProps {
-    onClick: (route: string) => void;
-    active?: string;
-}
-
-function Header({ onClick, active }: HeaderProps) {
+function Header() {
     return (
         <StyledHeader>
-            <HeaderImage
-                src={logoSrc}
-                alt={'Star Wars logo'}
-                width={'200px'}
-                onClick={() => onClick('home')}
-            />
-            <NavMenu onClick={onClick} active={active} isHeader={true} />
+            <NavLink to={'/'}>
+                <HeaderImage
+                    src={logoSrc}
+                    alt={'Star Wars logo'}
+                    width={'200px'}
+                />
+            </NavLink>
+            <NavBar>
+                <NavLink to={'/films'}>
+                    <li>Films</li>
+                </NavLink>
+                <NavLink to={'/people'}>
+                    <li>People</li>
+                </NavLink>
+                <NavLink to={'/planets'}>
+                    <li>Planets</li>
+                </NavLink>
+                <NavLink to={'/starships'}>
+                    <li>Starships</li>
+                </NavLink>
+                <NavLink to={'/vehicles'}>
+                    <li>Vehicles</li>
+                </NavLink>
+            </NavBar>
         </StyledHeader>
     );
 }

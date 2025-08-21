@@ -25,27 +25,29 @@ function FilmsSection() {
     }, []);
 
     return (
-        <section>
-            <h1>Films search</h1>
+        <>
+            <section>
+                <h1>Films search</h1>
 
-            <Search value={input} onChange={setInput} />
+                <Search value={input} onChange={setInput} />
 
-            {loading && <p>Loading...</p>}
+                {loading && <p>Loading...</p>}
 
-            {!loading && (
-                <>
-                    {data
-                        .filter((film) =>
-                            film.title
-                                .toLowerCase()
-                                .includes(input.toLowerCase()),
-                        )
-                        .map((film) => (
-                            <FilmCard key={film.episode_id} film={film} />
-                        ))}
-                </>
-            )}
-        </section>
+                {!loading && (
+                    <>
+                        {data
+                            .filter((film) =>
+                                film.title
+                                    .toLowerCase()
+                                    .includes(input.toLowerCase()),
+                            )
+                            .map((film) => (
+                                <FilmCard key={film.episode_id} film={film} />
+                            ))}
+                    </>
+                )}
+            </section>
+        </>
     );
 }
 
