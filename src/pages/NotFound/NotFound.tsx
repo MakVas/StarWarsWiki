@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import { ImageContainer } from './NotFound.css.ts';
-import errorImage from './../../assets/sad_obi_wan.png';
+import errorImage from '../../../public/sad_obi_wan.png';
 
 function NotFound() {
     const navigate = useNavigate();
