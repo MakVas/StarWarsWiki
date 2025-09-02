@@ -5,6 +5,7 @@ import { type filmModel } from '../../models/filmModel.ts';
 
 import FilmCard from '../../components/Cards/FilmCard/FilmCard.tsx';
 import Search from '../../components/Search/Search.tsx';
+import { FilmCardContainer } from './FilmSection.css.ts';
 
 function FilmsSection() {
     const [input, setInput] = useState<string>('');
@@ -34,7 +35,7 @@ function FilmsSection() {
                 {loading && <p>Loading...</p>}
 
                 {!loading && (
-                    <>
+                    <FilmCardContainer>
                         {data
                             .filter((film) =>
                                 film.title
@@ -44,7 +45,7 @@ function FilmsSection() {
                             .map((film) => (
                                 <FilmCard key={film.episode_id} film={film} />
                             ))}
-                    </>
+                    </FilmCardContainer>
                 )}
             </section>
         </>

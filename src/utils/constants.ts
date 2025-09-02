@@ -1,1 +1,1 @@
-export const logoSrc = '/logo.png';
+export const logoSrc = 'src/assets/logo.png';

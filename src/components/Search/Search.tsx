@@ -8,7 +8,7 @@ interface SearchProps {
 function Search({ value, onChange }: SearchProps) {
     return (
         <SearchBar>
-            <Hilt src={'/lightsaber.png'} alt={'Hilt'} />
+            <Hilt src={'src/assets/lightsaber.png'} alt={'Hilt'} />
             <input
                 type={'text'}
                 value={value}

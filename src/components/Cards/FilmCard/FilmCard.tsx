@@ -1,12 +1,26 @@
+import { useState } from 'react';
+
+import { StyledFilmCard, ExpandArrow } from './FilmCard.css.ts';
+
 import type { filmModel } from '../../../models/filmModel.ts';
 
 function FilmCard({ film }: { film: filmModel }) {
+    const [expanded, setExpanded] = useState(false);
+
     return (
-        <div className={'film-card'}>
-            <h2 className={'film-card__title'}>
+        <StyledFilmCard
+            $expanded={expanded}
+            onClick={() => setExpanded((prev) => !prev)}
+        >
+            <h2>
                 Episode {film.episode_id}: {film.title}
             </h2>
-        </div>
+            <ExpandArrow
+                $expanded={expanded}
+                src={'src/assets/icons/expand_arrow.svg'}
+                alt={'Expand'}
+            />
+        </StyledFilmCard>
     );
 }
 

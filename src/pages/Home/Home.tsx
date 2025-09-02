@@ -4,7 +4,7 @@ import { Quote, WelcomeText } from './Home.css.ts';
 
 function Home() {
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    const randomMeme = `/memes/${Math.floor(Math.random() * 5)}.jpg`;
+    const randomMeme = `src/assets/memes/${Math.floor(Math.random() * 5)}.jpg`;
 
     return (
         <>
