@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { type filmModel } from '../../models/filmModel.ts';
 
-import FilmCard from '../../components/Cards/FilmCard/FilmCard.tsx';
+import { FilmCard } from '../../components/Cards/FilmCard/FilmCard.tsx';
 import Search from '../../components/Search/Search.tsx';
 import { FilmCardContainer } from './FilmSection.css.ts';
 
@@ -39,7 +39,8 @@ function FilmsSection() {
                         {data
                             .filter((film) => {
                                 const searchString =
-                                    `Episode ${film.episode_id}: ${film.title}`.toLowerCase();
+                                    `Episode ${film.episode_id}: ${film.title} (
+                                    ${film.release_date.slice(0, 4)})`.toLowerCase();
                                 return searchString.includes(
                                     input.toLowerCase(),
                                 );

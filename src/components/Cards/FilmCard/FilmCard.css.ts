@@ -6,8 +6,7 @@ const StyledFilmCard = styled.button<{ $expanded: boolean }>`
     color: white;
     cursor: pointer;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
     border-radius: 16px;
     background: ${({ $expanded }) =>
         $expanded ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.15)'};
@@ -15,8 +14,22 @@ const StyledFilmCard = styled.button<{ $expanded: boolean }>`
     -webkit-backdrop-filter: blur(2px);
     border: none;
     outline: none;
+
     &:hover {
         background: rgba(255, 255, 255, 0.2);
+    }
+
+    transition: height 2s ease;
+`;
+
+const TitleRow = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    h2 {
+        font-size: 24px;
     }
 `;
 
@@ -27,4 +40,14 @@ const ExpandArrow = styled.img<{ $expanded: boolean }>`
     rotate: ${({ $expanded }) => ($expanded ? '180deg' : '0deg')};
 `;
 
-export { StyledFilmCard, ExpandArrow };
+const FilmInfo = styled.div<{ $expanded: boolean }>`
+    display: ${({ $expanded }) => ($expanded ? 'flex' : 'none')};
+    flex-direction: column;
+    text-align: start;
+
+    p {
+        font-size: 16px;
+    }
+`;
+
+export { StyledFilmCard, ExpandArrow, FilmInfo, TitleRow };
