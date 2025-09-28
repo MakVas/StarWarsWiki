@@ -1,6 +1,6 @@
 import { quotes } from '../../utils/quotes.ts';
 
-import { Quote, WelcomeText } from './Home.css.ts';
+import { Meme, Quote, WelcomeText } from './Home.css.ts';
 
 function Home() {
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
@@ -30,14 +30,14 @@ function Home() {
                     <p>{`— ${randomQuote.author}`}</p>
                 </Quote>
 
-                <div>
+                <Meme>
                     <h2>Random Star Wars meme</h2>
                     <img
                         className={'home__image'}
                         src={randomMeme}
                         alt={'random star wars meme'}
                     />
-                </div>
+                </Meme>
             </section>
         </>
     );
