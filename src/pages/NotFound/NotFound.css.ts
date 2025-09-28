@@ -1,13 +1,19 @@
 import styled from 'styled-components';
 
 const ImageContainer = styled.div`
+    margin: 32px 0;
     position: relative;
     display: inline-block;
+    width: 100%;
+    max-width: 700px;
 
     img {
-        max-width: 700px;
-        display: block;
-        margin: 0 auto;
+        width: 100%;
+        border-radius: 32px;
+        border: 5px solid ${({ theme }) => theme.colors.secondary};
+        box-shadow:
+            0 0 4px ${({ theme }) => theme.colors.secondary},
+            0 0 8px ${({ theme }) => theme.colors.secondary};
     }
 
     h2 {
