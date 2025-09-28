@@ -37,11 +37,13 @@ function FilmsSection() {
                 {!loading && (
                     <FilmCardContainer>
                         {data
-                            .filter((film) =>
-                                film.title
-                                    .toLowerCase()
-                                    .includes(input.toLowerCase()),
-                            )
+                            .filter((film) => {
+                                const searchString =
+                                    `Episode ${film.episode_id}: ${film.title}`.toLowerCase();
+                                return searchString.includes(
+                                    input.toLowerCase(),
+                                );
+                            })
                             .map((film) => (
                                 <FilmCard key={film.episode_id} film={film} />
                             ))}
