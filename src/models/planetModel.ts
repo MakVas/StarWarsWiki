@@ -6,6 +6,7 @@ export type planetModel = {
     climate: string;
     terrain: string;
     population: string;
+    url: string;
 };
 
 export const defaultPlanet: planetModel = {
@@ -16,4 +17,5 @@ export const defaultPlanet: planetModel = {
     climate: '',
     terrain: '',
     population: '',
+    url: '',
 };

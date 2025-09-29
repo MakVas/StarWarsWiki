@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledFilmCard = styled.button<{ $expanded: boolean }>`
+const StyledCard = styled.div<{ $expanded: boolean }>`
     width: 100%;
     padding: 16px;
     color: white;
@@ -15,11 +15,13 @@ const StyledFilmCard = styled.button<{ $expanded: boolean }>`
     border: none;
     outline: none;
 
+    p {
+        margin: 0;
+    }
+
     &:hover {
         background: rgba(255, 255, 255, 0.2);
     }
-
-    transition: height 2s ease;
 `;
 
 const TitleRow = styled.div`
@@ -40,14 +42,11 @@ const ExpandArrow = styled.img<{ $expanded: boolean }>`
     rotate: ${({ $expanded }) => ($expanded ? '180deg' : '0deg')};
 `;
 
-const FilmInfo = styled.div<{ $expanded: boolean }>`
-    display: ${({ $expanded }) => ($expanded ? 'flex' : 'none')};
-    flex-direction: column;
-    text-align: start;
-
-    p {
-        font-size: 16px;
-    }
+const ExpandableContent = styled.div<{ $expanded: boolean }>`
+    overflow: hidden;
+    max-height: ${({ $expanded }) => ($expanded ? '500px' : '0')};
+    opacity: ${({ $expanded }) => ($expanded ? 1 : 0)};
+    transition: all 0.3s ease;
 `;
 
-export { StyledFilmCard, ExpandArrow, FilmInfo, TitleRow };
+export { StyledCard, TitleRow, ExpandArrow, ExpandableContent };

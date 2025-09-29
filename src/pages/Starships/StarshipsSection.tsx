@@ -1,31 +1,21 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 
 import type { starshipModel } from '../../models/starshipModel.ts';
+import { useApi } from '../../hooks/useApi.ts';
 
-import StarshipCard from '../../components/Cards/StarshipCard/StarshipCard.tsx';
 import Search from '../../components/Search/Search.tsx';
+import Card from '../../components/Card/Card.tsx';
+import { GridCardContainer } from '../../components/Containers/CardContainers.css.ts';
 
 function StarshipsSection() {
     const [input, setInput] = useState<string>('');
-    const [data, setData] = useState<starshipModel[]>([]);
-    const [loading, setLoading] = useState<boolean>(false);
 
-    useEffect(() => {
-        const init = async () => {
-            setLoading(true);
-            const result: starshipModel[] = (
-                await axios.get('https://swapi.info/api/starships')
-            ).data;
-            setData(result);
-            setLoading(false);
-        };
-
-        init();
-    }, []);
+    const { data, loading } = useApi<starshipModel>(
+        'https://swapi.info/api/starships',
+    );
 
     return (
-        <section className={'section starships'}>
+        <section>
             <h1>Starships search</h1>
 
             <Search value={input} onChange={setInput} />
@@ -33,7 +23,7 @@ function StarshipsSection() {
             {loading && <p>Loading...</p>}
 
             {!loading && (
-                <>
+                <GridCardContainer>
                     {data
                         .filter((starship) =>
                             starship.name
@@ -41,12 +31,13 @@ function StarshipsSection() {
                                 .includes(input.toLowerCase()),
                         )
                         .map((starship) => (
-                            <StarshipCard
+                            <Card
                                 key={starship.name}
-                                starship={starship}
+                                title={starship.name}
+                                details={<></>}
                             />
                         ))}
-                </>
+                </GridCardContainer>
             )}
         </section>
     );

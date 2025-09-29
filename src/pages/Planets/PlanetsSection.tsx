@@ -1,31 +1,21 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 
 import type { planetModel } from '../../models/planetModel.ts';
+import { useApi } from '../../hooks/useApi.ts';
 
-import PlanetCard from '../../components/Cards/PlanetCard/PlanetCard.tsx';
 import Search from '../../components/Search/Search.tsx';
+import Card from '../../components/Card/Card.tsx';
+import { ColumnCardContainer } from '../../components/Containers/CardContainers.css.ts';
 
 function PlanetsSection() {
     const [input, setInput] = useState<string>('');
-    const [data, setData] = useState<planetModel[]>([]);
-    const [loading, setLoading] = useState<boolean>(false);
 
-    useEffect(() => {
-        const init = async () => {
-            setLoading(true);
-            const result: planetModel[] = (
-                await axios.get('https://swapi.info/api/planets')
-            ).data;
-            setData(result);
-            setLoading(false);
-        };
-
-        init();
-    }, []);
+    const { data, loading } = useApi<planetModel>(
+        'https://swapi.info/api/planets',
+    );
 
     return (
-        <section className={'section planets'}>
+        <section>
             <h1>Planets search</h1>
 
             <Search value={input} onChange={setInput} />
@@ -33,7 +23,7 @@ function PlanetsSection() {
             {loading && <p>Loading...</p>}
 
             {!loading && (
-                <>
+                <ColumnCardContainer>
                     {data
                         .filter((planet) =>
                             planet.name
@@ -41,9 +31,13 @@ function PlanetsSection() {
                                 .includes(input.toLowerCase()),
                         )
                         .map((planet) => (
-                            <PlanetCard key={planet.name} planet={planet} />
+                            <Card
+                                key={planet.name}
+                                title={planet.name}
+                                details={<></>}
+                            />
                         ))}
-                </>
+                </ColumnCardContainer>
             )}
         </section>
     );

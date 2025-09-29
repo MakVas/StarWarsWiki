@@ -26,6 +26,9 @@ const Quote = styled.div`
     border-radius: 32px;
     border: 5px solid ${({ theme }) => theme.colors.secondary};
     max-width: 1000px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     margin: 32px auto 0 auto;
     padding: ${({ theme }) => theme.spacing.medium};
     display: flex;

@@ -1,31 +1,20 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 
 import type { vehicleModel } from '../../models/vehicleModel.ts';
+import { useApi } from '../../hooks/useApi.ts';
 
-import VehicleCard from '../../components/Cards/VehicleCard/VehicleCard.tsx';
 import Search from '../../components/Search/Search.tsx';
+import Card from '../../components/Card/Card.tsx';
+import { GridCardContainer } from '../../components/Containers/CardContainers.css.ts';
 
 function VehiclesSection() {
     const [input, setInput] = useState<string>('');
-    const [data, setData] = useState<vehicleModel[]>([]);
-    const [loading, setLoading] = useState<boolean>(false);
-
-    useEffect(() => {
-        const init = async () => {
-            setLoading(true);
-            const result: vehicleModel[] = (
-                await axios.get('https://swapi.info/api/vehicles')
-            ).data;
-            setData(result);
-            setLoading(false);
-        };
-
-        init();
-    }, []);
+    const { data, loading } = useApi<vehicleModel>(
+        'https://swapi.info/api/vehicles',
+    );
 
     return (
-        <section className={'section vehicles'}>
+        <section>
             <h1>Vehicles search</h1>
 
             <Search value={input} onChange={setInput} />
@@ -33,7 +22,7 @@ function VehiclesSection() {
             {loading && <p>Loading...</p>}
 
             {!loading && (
-                <>
+                <GridCardContainer>
                     {data
                         .filter((vehicle) =>
                             vehicle.name
@@ -41,9 +30,13 @@ function VehiclesSection() {
                                 .includes(input.toLowerCase()),
                         )
                         .map((vehicle) => (
-                            <VehicleCard key={vehicle.name} vehicle={vehicle} />
+                            <Card
+                                key={vehicle.name}
+                                title={vehicle.name}
+                                details={<></>}
+                            />
                         ))}
-                </>
+                </GridCardContainer>
             )}
         </section>
     );

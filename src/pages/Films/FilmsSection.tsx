@@ -1,29 +1,15 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 
 import { type filmModel } from '../../models/filmModel.ts';
+import { useApi } from '../../hooks/useApi.ts';
 
-import { FilmCard } from '../../components/Cards/FilmCard/FilmCard.tsx';
 import Search from '../../components/Search/Search.tsx';
-import { FilmCardContainer } from './FilmSection.css.ts';
+import Card from '../../components/Card/Card.tsx';
+import { ColumnCardContainer } from '../../components/Containers/CardContainers.css.ts';
 
 function FilmsSection() {
     const [input, setInput] = useState<string>('');
-    const [data, setData] = useState<filmModel[]>([]);
-    const [loading, setLoading] = useState<boolean>(false);
-
-    useEffect(() => {
-        const init = async () => {
-            setLoading(true);
-            const result: filmModel[] = (
-                await axios.get('https://swapi.info/api/films')
-            ).data;
-            setData(result);
-            setLoading(false);
-        };
-
-        init();
-    }, []);
+    const { data, loading } = useApi<filmModel>('https://swapi.info/api/films');
 
     return (
         <>
@@ -35,7 +21,7 @@ function FilmsSection() {
                 {loading && <p>Loading...</p>}
 
                 {!loading && (
-                    <FilmCardContainer>
+                    <ColumnCardContainer>
                         {data
                             .filter((film) => {
                                 const searchString =
@@ -46,9 +32,24 @@ function FilmsSection() {
                                 );
                             })
                             .map((film) => (
-                                <FilmCard key={film.episode_id} film={film} />
+                                <Card
+                                    key={film.episode_id}
+                                    title={`Episode ${film.episode_id}: ${film.title} (${film.release_date.slice(0, 4)})`}
+                                    details={
+                                        <>
+                                            <p>{film.opening_crawl}</p>
+                                            <br />
+                                            <p>
+                                                <b>Directed by: </b>{' '}
+                                                {film.director},{' '}
+                                                <b>Produced by: </b>{' '}
+                                                {film.producer}
+                                            </p>
+                                        </>
+                                    }
+                                />
                             ))}
-                    </FilmCardContainer>
+                    </ColumnCardContainer>
                 )}
             </section>
         </>
