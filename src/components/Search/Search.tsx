@@ -12,6 +12,7 @@ function Search({ value, onChange }: SearchProps) {
             <input
                 type={'text'}
                 value={value}
+                placeholder={'Search...'}
                 onChange={(e) => onChange(e.target.value)}
             />
         </SearchBar>

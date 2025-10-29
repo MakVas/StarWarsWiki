@@ -33,7 +33,46 @@ function VehiclesSection() {
                             <Card
                                 key={vehicle.name}
                                 title={vehicle.name}
-                                details={<></>}
+                                details={
+                                    <>
+                                        <p>
+                                            <b>Model: </b>
+                                            {vehicle.model}
+                                        </p>
+                                        <p>
+                                            <b>Length: </b>
+                                            {vehicle.length}
+                                        </p>
+                                        <p>
+                                            <b>Crew: </b>
+                                            {vehicle.crew}
+                                        </p>
+                                        <p>
+                                            <b>Cargo capacity: </b>
+                                            {vehicle.cargo_capacity}
+                                        </p>
+                                        <p>
+                                            <b>Cost in credits: </b>
+                                            {vehicle.cost_in_credits}
+                                        </p>
+                                        <p>
+                                            <b>Manufacturer: </b>
+                                            {vehicle.manufacturer}
+                                        </p>
+                                        <p>
+                                            <b>Starship class: </b>
+                                            {vehicle.vehicle_class}
+                                        </p>
+                                        <p>
+                                            <b>Passengers: </b>
+                                            {vehicle.passengers}
+                                        </p>
+                                        <p>
+                                            <b>Max speed: </b>
+                                            {vehicle.max_atmosphering_speed}
+                                        </p>
+                                    </>
+                                }
                             />
                         ))}
                 </GridCardContainer>

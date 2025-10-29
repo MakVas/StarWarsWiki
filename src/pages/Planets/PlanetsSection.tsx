@@ -34,7 +34,42 @@ function PlanetsSection() {
                             <Card
                                 key={planet.name}
                                 title={planet.name}
-                                details={<></>}
+                                details={
+                                    <>
+                                        <div>
+                                            <p>
+                                                <b>Diameter:</b>
+                                                <br />
+                                                {planet.diameter}
+                                            </p>
+                                            <p>
+                                                <b>Terrain:</b>
+                                                <br />
+                                                {planet.terrain}
+                                            </p>
+                                            <p>
+                                                <b>Population:</b>
+                                                <br />
+                                                {planet.population}
+                                            </p>
+                                            <p>
+                                                <b>Orbital period:</b>
+                                                <br />
+                                                {planet.orbital_period}
+                                            </p>
+                                            <p>
+                                                <b>Rotation period:</b>
+                                                <br />
+                                                {planet.rotation_period}
+                                            </p>
+                                            <p>
+                                                <b>Diameter:</b>
+                                                <br />
+                                                {planet.diameter}
+                                            </p>
+                                        </div>
+                                    </>
+                                }
                             />
                         ))}
                 </ColumnCardContainer>

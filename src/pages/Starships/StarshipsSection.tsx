@@ -34,7 +34,50 @@ function StarshipsSection() {
                             <Card
                                 key={starship.name}
                                 title={starship.name}
-                                details={<></>}
+                                details={
+                                    <>
+                                        <p>
+                                            <b>Model: </b>
+                                            {starship.model}
+                                        </p>
+                                        <p>
+                                            <b>Length: </b>
+                                            {starship.length}
+                                        </p>
+                                        <p>
+                                            <b>Crew: </b>
+                                            {starship.crew}
+                                        </p>
+                                        <p>
+                                            <b>Cargo capacity: </b>
+                                            {starship.cargo_capacity}
+                                        </p>
+                                        <p>
+                                            <b>Cost in credits: </b>
+                                            {starship.cost_in_credits}
+                                        </p>
+                                        <p>
+                                            <b>Manufacturer: </b>
+                                            {starship.manufacturer}
+                                        </p>
+                                        <p>
+                                            <b>Starship class: </b>
+                                            {starship.starship_class}
+                                        </p>
+                                        <p>
+                                            <b>Hyperdrive rating: </b>
+                                            {starship.hyperdrive_rating}
+                                        </p>
+                                        <p>
+                                            <b>Passengers: </b>
+                                            {starship.passengers}
+                                        </p>
+                                        <p>
+                                            <b>Max speed: </b>
+                                            {starship.max_atmosphering_speed}
+                                        </p>
+                                    </>
+                                }
                             />
                         ))}
                 </GridCardContainer>

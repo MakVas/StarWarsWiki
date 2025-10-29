@@ -47,6 +47,12 @@ const ExpandableContent = styled.div<{ $expanded: boolean }>`
     max-height: ${({ $expanded }) => ($expanded ? '500px' : '0')};
     opacity: ${({ $expanded }) => ($expanded ? 1 : 0)};
     transition: all 0.3s ease;
+
+    div {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+    }
 `;
 
 export { StyledCard, TitleRow, ExpandArrow, ExpandableContent };
